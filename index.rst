@@ -11,13 +11,7 @@ Ansi Common Lisp 中文翻譯版
 .. toctree::
    :maxdepth: 2
 
-   about
    ch1
    ch2
-   ch3
-
-
-搜尋
-==================
-* :ref:`search`
+   about
 

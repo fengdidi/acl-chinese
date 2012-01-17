@@ -1,5 +1,5 @@
-Chapter 1 简介
-*****************
+Chapter 1 简介 (Introduction)
+*******************************
 
 \ `约翰麦卡锡 <http://zh.wikipedia.org/zh-cn/%E7%BA%A6%E7%BF%B0%C2%B7%E9%BA%A6%E5%8D%A1%E9% 94%A1>`_\ (John McCarthy)和他的学生于1958年展开Lisp的初次实现工作。 Lisp是继FORTRAN之后，仍在使用的最古老的程序语言。更值得注意的是，它仍走在程序语言技术的最前面。懂Lisp的程序员会告诉你，有某种东西使Lisp与众不同。
 

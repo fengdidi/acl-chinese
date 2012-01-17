@@ -12,7 +12,7 @@ Lisp與眾不同的部分原因是它被設計成能夠自己進化。你能用L
 
 ::
 
-		; Lisp                   /* C */
+	; Lisp                   /* C */
 	(defun sum (n)           int sum(int n){
 	  (let ((s 0))             int i, s = 0;
 	    (dotimes (i n s)       for(i = 0; i < n; i++)

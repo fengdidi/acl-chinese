@@ -11,7 +11,6 @@ Ansi Common Lisp 中文翻譯版
 .. toctree::
    :maxdepth: 2
 
-   preface
    ch1
    ch2
    about
@@ -21,7 +20,6 @@ Ansi Common Lisp 中文翻譯版
 .. toctree::
    :maxdepth: 2
 
-   preface-cn
    ch1-cn
    ch2-cn
    about-cn

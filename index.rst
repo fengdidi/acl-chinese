@@ -6,7 +6,7 @@
 Ansi Common Lisp 中文翻譯版
 ===============================================
 
-內容:
+繁體中文:
 
 .. toctree::
    :maxdepth: 2
@@ -16,3 +16,12 @@ Ansi Common Lisp 中文翻譯版
    ch2
    about
 
+简体中文:
+
+.. toctree::
+   :maxdepth: 2
+
+   preface-cn
+   ch1-cn
+   ch2-cn
+   about-cn

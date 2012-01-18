@@ -13,6 +13,7 @@ Ansi Common Lisp 中文翻譯版
 
    ch1
    ch2
+   ch3
    about
 
 简体中文:
@@ -22,4 +23,5 @@ Ansi Common Lisp 中文翻譯版
 
    ch1-cn
    ch2-cn
+   ch3-cn
    about-cn

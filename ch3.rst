@@ -8,6 +8,95 @@ Lisp 程式開發通常呼應著開發 Lisp 語言自身。在最初版本的 Li
 3.1 創建 (Conses)
 ====================
 
+在2.4節我們介紹了 ``cons`` , ``car`` , 以及 ``cdr`` ，基本的 List 操作函數 (list-manipulation fuctions)。 ``cons`` 真正所做的事情是，把兩個物件結合成到一個有兩部分的物件，稱之為 *cons* 物件。概念上來說，一個 cons 是一對指標; 第一個是 car ，第二個是 cdr。
+
+Cons 物件提供了一個方便的表示法來表示任何型態的物件。一個 cons 裡的一對指標可以指向任何種類的物件，包括 cons 物件。它利用到我們之後可以用 cons 來創建列表的可能性。
+
+我們往往不會把列表想成是成對的，但它們可以這樣被定義。任何非空的列表都可以被視為一對由列表第一個元素及列表其餘元素所組成的。 Lisp 列表體現了這個概念。我們使用 cons 的一半來指向列表的第一個元素，然後用另一半指向列表其餘的元素 (是別的 cons 或 nil)。 Lisp 的慣例是使用 ``car`` 代表列表的第一個元素，而用 ``cdr`` 代表列表的其餘的元素。所以現在 ``car`` 是列表的第一個元素的同義詞，而``cdr`` 是列表的其餘的元素的同義詞。列表不是不同的物件，而是像 cons 這樣的方式連結起來。
+
+當我們想在 nil 上面建立 (cons)東西時，
+
+::
+
+   > (setf x (cons 'a nil))
+   (A)
+
+\
+
+.. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.1.png?w=903fbe8f
+    
+圖3.1 一個元素的列表
+
+產生的列表由一個 cons 所組成，見圖3.1。這種表達 cons 的方式叫做 箱子標示法 (box notation)，因為每一個 cons 是用一個有者指向 ``car`` 和 ``cdr`` 的箱子來表示。當我們呼叫 ``car`` 與 ``cdr``時，我們得到指標指向的地方：
+
+::
+   
+   > (car x)
+   A
+   > (cdr x)
+   NIL
+
+當我們創建一個多元素的列表時，我們得到一串 conses ：
+
+::
+
+   > (setf y (list 'a 'b 'c))
+   (A B C)
+
+產生的結構見圖3.2。現在當我們問這個列表的 ``cdr`` 是什麼的時候，它是一個兩個元素的列表。
+
+\
+
+.. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.2.png?w=b42e4db9
+   
+圖3.2 三個元素的列表
+
+::
+
+   > (cdr y)
+   (B C)
+
+在一個有多個元素的列表中， ``car`` 指標讓你取得元素，而 ``cdr`` 讓你取得列表內其餘的東西。
+
+一個列表可以有任何種類的物件作為元素，包括另一個列表：
+
+::
+
+   > (setf z (list 'a (list 'b 'c) 'd'))
+   (A (B C) D)
+
+這種情況發生時，它的結構如圖3.3所示; 第二個 cons 的 ``car`` 指標也指向一個列表：
+
+::
+
+  > (car (cdr z))
+  (B C)
+
+\
+
+.. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.3.png?w=10d193e0
+    
+圖3.3 巢狀列表
+
+
+前兩個我們創建的列表都有三個元素; 只不過 ``z`` 列表的第二個元素也剛好是一個列表。像這樣的列表稱為 *巢狀* 列表，而像 ``y`` 這樣的列表稱之為 *平坦* 列表 ( *flat* list)。
+
+函數 ``consp`` 回傳真，如果引數是一個 cons。 所以我們可以這樣定義``listp`` ：
+
+::
+
+  (defun our-listp (x)
+  	(or (null x) (consp x)))
+
+因為所有不是 cons 的東西就是一個原子 (atom)，判斷式 ``atom`` 可以這樣定義：
+
+::
+
+   (defun our-atom (x) (not (consp x)))
+
+注意， ``NIL`` 是一個原子，同時也是一個列表。
+
+
 3.2 等式 (Equality)
 =====================
 

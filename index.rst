@@ -9,7 +9,7 @@ Ansi Common Lisp 中文翻譯版
 繁體中文:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    ch1
    ch2
@@ -19,7 +19,7 @@ Ansi Common Lisp 中文翻譯版
 简体中文:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    ch1-cn
    ch2-cn

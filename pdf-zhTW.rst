@@ -2,20 +2,25 @@
 繁體中文 PDF 下載
 *************************************************
 
-	+-----------------+----------------+---------------+
-	| 第 01 章 `ch01` | 第 05 章 `ch05` | 第 09 章 `ch09` |  
-	| 第 02 章 `ch02` | 第 06 章 `ch06` | 第 10 章 `ch10` | 
-	| 第 03 章 `ch03` | 第 07 章 `ch07` | 第 11 章 `ch11` | 
-	| 第 04 章 `ch04` | 第 08 章 `ch08` | 第 12 章 `ch12` | 
-	+-----------------+----------------+---------------+
-
-.. ch1: 
-.. ch2: 
-.. ch3: 
-.. ch4: 
-.. ch5: 
-.. ch6: 
-.. ch7: 
-.. ch8: 
-.. ch9:
++---------------------+---------------------+---------------------+
+|  Chapter 01 `ch01`  |  Chapter 05 `ch01`  |  Chapter 09 `ch01`  |
+|  Chapter 02 `ch02`  |  Chapter 06 `ch01`  |  Chapter 10 `ch01`  |
+|  Chapter 03 `ch03`  |  Chapter 07 `ch01`  |  Chapter 11 `ch01`  |
+|  Chapter 04 `ch04`  |  Chapter 08 `ch01`  |  Chapter 12 `ch01`  |
++---------------------+---------------------+---------------------+
+|  Chapter 13 `ch13`  | Appendix A. Debugging `app-a`             |
+|  Chapter 14 `ch14`  | Appendix B. Lisp in Lisp `app-b`          |
+|  Chapter 15 `ch15`  | Appendix C. Changes to Common Lisp `app-c`|
+|  Chapter 16 `ch16`  | Appendix D. Language Reference `app-d`    |
+|  Chapter 17 `ch17`  | Notes                                     |
++---------------------+-------------------------------------------+
+.. ch01: 
+.. ch02: 
+.. ch03: 
+.. ch04: 
+.. ch05: 
+.. ch06: 
+.. ch07: 
+.. ch08: 
+.. ch09:
 .. ch10: 

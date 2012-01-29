@@ -15,6 +15,7 @@ Ansi Common Lisp 中文翻譯版
    ch2
    ch3
    about
+   pdf-zhTW
 
 简体中文:
 
@@ -25,3 +26,4 @@ Ansi Common Lisp 中文翻譯版
    ch2-cn
    ch3-cn
    about-cn
+   pdf-zhCN

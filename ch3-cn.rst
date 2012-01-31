@@ -1,7 +1,7 @@
 Chapter 3 列表 (Lists)
 **********************************
 
-列表是 Lisp 中基本的数据结构之一。在最早的 Lisp 方言中，他们是唯一的数据结构： Lisp 这个名字本来代表的是 "LISt Processor" 。但 Lisp 已经超越这个缩写很久了。 Common Lisp 是一个有着各式各样数据结构的通用性程式语言(general-purpose programming language)。
+列表是 Lisp 中基本的数据结构之一。在最早的 Lisp 方言中，他们是唯一的数据结构： Lisp 这个名字本来代表的是 "LISt Processor" 。但 Lisp 已经超越这个缩写很久了。 Common Lisp 是一个有着各式各样数据结构的通用性程序语言(general-purpose programming language)。
 
 Lisp 程序开发通常呼应着开发 Lisp 语言自身。在最初版本的 Lisp 程序，你可能使用很多列表。然而之后的版本，你可能换到快速、特定的数据结构。本章描述了你可以用列表所做的很多事情，以​​及使用它们来演示一些普遍的 Lisp 概念。
 
@@ -167,8 +167,137 @@ Lisp 没有指针的原因是因为每一个值，其实概念上来说都是一
 3.4 建立列表 (Building Lists)
 =================================
 
+.. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.5.png?w=d1e830b3
+
+图 3.5 复制的结果
+
+函数 ``copy-list`` 接受一个列表，然后返回此列表的副本。新的列表会有同样的元素，但是装在新的 Conses 物件里：
+
+::
+
+   > (setf x '(a b c))
+           y (copy-list x))
+   (A B C)
+
+图 3.5 展示出结果的结构; 返回值像是有着相同乘客的新公车。我们可以把 ``copy-list`` 想成是这么定义的:
+
+::
+
+   (defun our-copy-list (lst)
+     (if (atom list)
+         lst
+         (cons (car lst) (our-copy-list (cdr lst)))))
+
+这个定义暗示着 x 与 (copy-list x) 会永远 ``equal`` ，并永远不 ``eql`` ，除非 x 是 ``NIL`` 。
+
+最后，函数 ``append`` 返回任何数目的列表串接(concatenation)：
+
+::
+
+   > (append '(a b) '(c d) 'e)
+   (A B C D E)
+
+通过这么做，它复制所有的自变量，除了最后一个
+
 3.5 示例：压缩 (Example: Compression)
 ============================================
+
+作为一个例子，这节将演示如何实现简单形式的列表压缩。这个算法有一个令人映像深刻的名字， *游程编码* 。
+
+::
+
+   (defun compress (x)
+     (if (consp x)
+         (compr (car x) 1 (cdr x))
+         x))
+
+   (defun compr (elt n lst)
+     (if (null lst)
+         (list (n-elts elt n))
+         (let ((next (car lst)))
+           (if (eql next elt)
+               (compr elt (+ n 1) (cdr lst))
+               (cons (n​​-elts elt n)
+                     (compr next 1 (cdr lst)))))))
+
+   (defun n-elts (elt n)
+     (if (> n 1)
+         (list n elt)
+         elt))
+
+   图 3.6 游程编码 (Run-length encoding)：压缩
+
+在餐厅，这个算法的工作方式如下。一个女服务生走向有四个客人的桌子。"你们要什么？" 她问。"我要特餐，" 第一个客人说。
+"我也是，" 第二个客人说。"听起来不错，" 第三个客人说。每个人看着第四个客人。 ¨我要一个"cilantro soufflé，" 他小声地说。 (译注：蛋奶酥上面洒香菜跟酱料）
+
+瞬息之间，女服务生就转身踩着高跟鞋走回柜台去了。 "三个特餐，" 她大声对厨师说，"还有一个香菜蛋奶酥。"
+
+图 3.6 展示了如何实现这个压缩列表演算法。函数 ``compress`` 接受一个由原子组成的列表，然后返回一个压缩的列表：
+
+::
+
+   > (compress '(1 1 1 0 1 0 0 0 0 1))
+   ((3 1) 0 1 (4 0) 1)
+
+当相同的元素连续出现好几次，这个连续出现的序列被一个列表取代，列表指明出现的次数及出现的元素。
+
+主要的工作是由递归的 ``compr`` 所完成。这个函数接受三个引数： ``elt`` ，上一个我们看过的元素; ``n`` ，连续出现的次数， 以及 ``lst`` ，我们还没检视过的部分列表。如果没有东西需要检视了，我们呼叫 ``n-elts`` 来取得 n elts 的表示法。如果 ``lst`` 的第一个元素还是 ``elt`` ，我们增加出现的次数 ``n`` 并继续下去。否则我们得到，到目前为止的一个压缩的列表，然后 ``cons`` 这个列表在 ``compr`` 处理完剩下的列表所返回的东西之上。
+
+要复原一个压缩的列表，我们呼叫``uncompress`` (图 3.7)
+
+::
+
+   > (uncompress '((3 1) 0 1 (4 0) 1))
+   (1 1 1 0 1 0 0 0 0 1)
+
+::
+
+   (defun uncompress (lst)
+     (if (null lst)
+         nil
+         (let ((elt (car lst))
+               (rest (uncompress (cdr lst))))
+           (if (consp elt)
+               (append (apply #'list-of elt)
+                       rest)
+               (cons elt rest)))))
+
+   (defun list-of (n elt)
+     (if (zerop n)
+         nil
+         (cons elt (list-of (- n 1) elt))))
+
+   图 3.7 游程编码 (Run-length encoding)：解压缩
+
+
+这个函数递归地遍历这个压缩列表，逐字复制原子并调用 ``list-of`` ，展开成列表。
+
+::
+
+   > (list-of 3 'ho)
+   (HO HO HO)
+
+我们其实不需要自己写 ``list-of`` 。内建的 ``make-list`` 可以办到一样的事情─但它使用了我们还没介绍到的关键字参数(keyword argument)。
+
+图 3.6 跟 3.7 这种写法不是一个有经验的Lisp 程序员用的写法。它的效率很差，它没有尽可能的压缩，而且它只对由原子组成的列表有效。在几个章节内，我们会学到解决这些问题的技巧。
+
+::
+
+   载入程序
+
+   在这节的程序是我们第一个实质的程序。
+   当我们想要写超过数行的函数时，
+   通常我们会把程序写在一个档案，
+   然后使用 load 让 Lisp 读取函数的定义。
+   如果我们把图 3.6 跟 3.7 的程序，
+   存在一个档案叫做，"compress.lisp" 然后输入
+
+   (load "compress.lisp")
+
+   到顶层，或多或少的，
+   我们会像在直接输入顶层一样得到同样的效果。
+
+   注意：在某些实现中，Lisp 档案的扩展名会是".lsp" 而不是".lisp"。
 
 3.6 存取 (Access)
 ======================

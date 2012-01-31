@@ -18,6 +18,7 @@ PDF 製作中...
    ch1
    ch2
    ch3
+   ch4
    about
    pdf-zhTW
 
@@ -29,5 +30,6 @@ PDF 製作中...
    ch1-cn
    ch2-cn
    ch3-cn
+   ch4-cn
    about-cn
    pdf-zhCN

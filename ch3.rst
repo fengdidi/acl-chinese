@@ -167,7 +167,37 @@ Lisp 沒有指標的原因是因為每一個值，其實概念上來說都是一
 3.4 建立列表 (Building Lists)
 =================================
 
+.. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.5.png?w=d1e830b3
 
+圖 3.5 複製的結果
+
+函數 ``copy-list`` 接受一個列表，然後返回此列表的副本。新的列表會有同樣的元素，但是裝在新的 Conses 物件裡：
+
+::
+
+   > (setf x '(a b c))
+           y (copy-list x))
+   (A B C)
+
+圖 3.5 顯示出結果的結構; 回傳值像是有著相同乘客的新公車。我們可以把 ``copy-list`` 想成是這麼定義的:
+
+::
+
+   (defun our-copy-list (lst)
+     (if (atom list)
+         lst
+         (cons (car lst) (our-copy-list (cdr lst)))))
+
+這個定義暗示著 x 與 (copy-list x) 會永遠 ``equal`` ，並永遠不  ``eql`` ，除非 x 是 ``NIL`` 。
+
+最後，函數 ``append`` 回傳任何數目的列表串接 (concatenation)：
+
+::
+
+   > (append '(a b) '(c d) 'e)
+   (A B C D E)
+
+通過這麼做，它複製所有的引數，除了最後一個。
 
 3.5 範例：壓縮 (Example: Compression)
 ============================================

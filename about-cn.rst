@@ -7,7 +7,7 @@
 
 目前未取得原版书（没有脚注），目前先翻译本文，待日后攒够了钱买本原版书再补上脚注。
 
-感谢 huangZ (他写的 `Practical Common Lisp 个人翻译版 <http://t.cn/zOvuMZN>`_ 值得一看)、好朋友冯迪 给我的翻译建议及排版帮助。
+感谢 huangZ (他写的 `Practical Common Lisp 个人翻译版 <http://t.cn/zOvuMZN>`_ 值得一看)、泰安小码农冯迪 给我的翻译建议及排版帮助。
 
 我尽我有限的知识与精力替大家服务。
 

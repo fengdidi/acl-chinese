@@ -8,7 +8,7 @@
 
 目前未取得原版書（沒有腳註），目前先翻譯本文，待日後存夠錢了買本原版書再補上腳註。
 
-感謝 huangZ (他寫的 `Practical Common Lisp 個人翻譯版 <http://t.cn/zOvuMZN>`_ 值得一看）、冯迪 給我的翻譯建議及排版幫助。
+感謝 huangZ (他寫的 `Practical Common Lisp 個人翻譯版 <http://t.cn/zOvuMZN>`_ 值得一看）、泰安小碼農馮迪 給我的翻譯建議及排版幫助。
 
 我盡我有限的知識與精力替大家服務。
 

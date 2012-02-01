@@ -336,13 +336,13 @@ Common Lisp 有额外的存取函数，它们是用 ``car`` 跟 ``cdr`` 所定�
    > (last '(a b c))
    (C)
 
-这跟取得最后一个元素不一样。要取得列表的最后一个元素，你要取得 ``last`` 的``car``。
+这跟取得最后一个元素不一样。要取得列表的最后一个元素，你要取得 ``last`` 的 ``car`` 。
 
 Common Lisp 定义了函数 ``first`` 直到 ``tenth`` 可以取得列表对应的元素。这些函数不是 *零索引的* (zero-indexed)：
 
 ``(second x)`` 等同于 ``(nth 1 x)`` 。
 
-此外， Common Lisp 定义了像是 ``caddr`` 这样的函数，它是 cdr 的 cdr 的 car 的缩写(car of cdr of cdr)。所有这样形式的函数 ``cxr`` ，其中 x 是一个字串，最多四个 a 或 d ，在 Common Lisp 里都被定义好了。使用``cadr`` 可能会有异常 (exception)产生，在所有人都可能会读的代码里使用这样的函数，不是一个好主意。
+此外， Common Lisp 定义了像是 ``caddr`` 这样的函数，它是 cdr 的 cdr 的 car 的缩写(car of cdr of cdr)。所有这样形式的函数 ``cxr`` ，其中 x 是一个字串，最多四个 a 或 d ，在 Common Lisp 里都被定义好了。使用``cadr`` 可能会有异常 (exception)产生，这不是一个好的主意，在所有人都可能会读的代码里使用这样的函数。
 
 3.7 映射函数 (Mapping Functions)
 ============================================

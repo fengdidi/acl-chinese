@@ -336,17 +336,17 @@ Common Lisp 有額外的存取函數，它們是用 ``car`` 跟 ``cdr`` 所定�
    > (last '(a b c))
    (C)
 
-這跟取得最後一個元素不一樣。要取得列表的最後一個元素，你要取得 ``last`` 的 ``car``。
+這跟取得最後一個元素不一樣。要取得列表的最後一個元素，你要取得 ``last`` 的 ``car`` 。
 
 Common Lisp 定義了函數 ``first`` 直到 ``tenth`` 可以取得列表對應的元素。這些函數不是 *零索引的* (zero-indexed)：
 
 ``(second x)`` 等同於 ``(nth 1 x)`` 。
 
-此外， Common Lisp 定義了像是 ``caddr`` 這樣的函數，它是 cdr 的 cdr 的 car 的縮寫 (car of cdr of cdr)。所有這樣形式的函數 ``cxr`` ，其中 x 是一個字串，最多四個 a 或 d ，在 Common Lisp 裡都被定義好了。使用 ``cadr`` 可能會有例外 (exception)產生，在所有人都可能會讀的程式碼裡來使用這樣的函數，不是一個好主意。
-
+此外， Common Lisp 定義了像是 ``caddr`` 這樣的函數，它是 cdr 的 cdr 的 car 的縮寫 (car of cdr of cdr)。所有這樣形式的函數 ``cxr`` ，其中 x 是一個字串，最多四個 a 或 d ，在 Common Lisp 裡都被定義好了。使用 ``cadr`` 可能會有例外 (exception)產生，這不是一個好主意，在所有人都可能會讀的程式碼裡來使用這樣的函數。
 
 3.7 映對函數 (Mapping Functions)
 ============================================
+
 
 
 

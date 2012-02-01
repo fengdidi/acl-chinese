@@ -115,7 +115,7 @@ Cons 对象提供了一个方便的表示法来表示任何类型的对象。一
    > (eql x x)
    T
   
-本质上``equal`` 若它的自变量打印出的值相同时，返回真：
+本质上 ``equal`` 若它的自变量打印出的值相同时，返回真：
 
 ::
 
@@ -391,7 +391,7 @@ Common Lisp 有几个内建的操作树的函数。举例来说， ``copy-tree``
           (cons (our-copy-tree (car tr))
                 (our-copy-tree (cdr tr)))))
 
-把这跟 36 页的``copy-list`` 比较一下; ``copy-tree`` 复制每一个 Cons 对象的 car 与 cdr，而 ``copy-list`` 仅复制 cdr 。
+把这跟 36 页的 ``copy-list`` 比较一下; ``copy-tree`` 复制每一个 Cons 对象的 car 与 cdr，而 ``copy-list`` 仅复制 cdr 。
 
 没有内部节点的二元树没有太大的用处。 Common Lisp 包含了操作树的函数，不只是因为我们需要树这个结构，而是因为我们需要一种方法，来操作列表及所有内部的列表。举例来说，假设我们有一个这样的列表：
 
@@ -425,7 +425,7 @@ Common Lisp 有几个内建的操作树的函数。举例来说， ``copy-tree``
                (cons (our-subst new old (car tree))
                      (our-subst new old (cdr tree))))))
 
-操作树的函数通常有这种形式，car 与cdr 同时做递归。这种函数被称之为是*双重递归* (doubly recursive)。
+操作树的函数通常有这种形式，car 与cdr 同时做递归。这种函数被称之为是 *双重递归* (doubly recursive)。
 
 3.9 理解递归 (Understanding Recursion)
 ============================================

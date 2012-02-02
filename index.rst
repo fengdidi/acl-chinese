@@ -15,6 +15,7 @@ PDF 製作中...
 .. toctree::
    :maxdepth: 1
 
+   terminology
    ch1
    ch2
    ch3
@@ -27,6 +28,7 @@ PDF 製作中...
 .. toctree::
    :maxdepth: 1
 
+   terminology-cn
    ch1-cn
    ch2-cn
    ch3-cn

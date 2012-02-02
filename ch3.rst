@@ -1,5 +1,5 @@
 .. highlight:: cl
-   :linenothreshold: 10
+   :linenothreshold: 1
 
 Chapter 3 列表 (Lists)
 **********************************
@@ -48,8 +48,6 @@ Cons 物件提供了一個方便的表示法來表示任何型態的物件。一
 
 產生的結構見圖3.2。現在當我們想得到這個列表的 ``cdr`` 時，它是一個兩個元素的列表。
 
-\
-
 .. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.2.png?w=b42e4db9
    
 圖 3.2 三個元素的列表
@@ -74,8 +72,6 @@ Cons 物件提供了一個方便的表示法來表示任何型態的物件。一
 
   > (car (cdr z))
   (B C)
-
-\
 
 .. figure:: https://dl-web.dropbox.com/get/Juanito/acl-images/Figure-3.3.png?w=10d193e0
     
@@ -400,13 +396,12 @@ Common Lisp 有幾個內建的給樹使用的函數。舉例來說， ``copy-tre
 沒有內部節點的二元樹沒有太大的用處。 Common Lisp 包含了操作樹的函數，不只是因為我們需要樹這個結構，而是因為我們需要一種方法，來操作列表及所有內部的列表。舉例來說，假設我們有一個這樣的列表：
 
 ::
-:linenos:
+
    (and (integerp x) (zerop (mod x 2)))
 
 而我們想要把各處的 x 都換成 y 。呼叫 ``substitute`` 是不行的，它只能替換序列 (sequence)中的元素：
 
-.. code-block:: cl
-   :linenos:
+:: 
 
    > (substitute 'x 'y '(and (integerp x) (zerop (mod x 2))))
    (AND (INTEGERP X)(ZEROP (MOD X 2)))

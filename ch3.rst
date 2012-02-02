@@ -1,5 +1,5 @@
 .. highlight:: cl
-   :linenothreshold: 5
+   :linenothreshold: 10
 
 Chapter 3 列表 (Lists)
 **********************************
@@ -230,6 +230,7 @@ Lisp 沒有指標的原因是因為每一個值，其實概念上來說都是一
 
 圖 3.6 遊程編碼 (Run-length encoding)：壓縮
 
+
 在餐廳，這個演算法的工作方式如下。一個女服務生走向有四個客人的桌子。"你們要什麼？" 她問。"我要特餐，" 第一個客人說。
 "我也是，" 第二個客人說。"聽起來不錯，" 第三個客人說。每個人看著第四個客人。¨我要一個 "cilantro soufflé，" 他小聲地說。 (譯註：蛋奶酥上面灑香菜跟醬料）
 
@@ -270,7 +271,7 @@ Lisp 沒有指標的原因是因為每一個值，其實概念上來說都是一
          nil
          (cons elt (list-of (- n 1) elt))))
 
-   圖 3.7 遊程編碼 (Run-length encoding)：解壓縮
+圖 3.7 遊程編碼 (Run-length encoding)：解壓縮
 
 
 這個函數遞迴地遍歷這個壓縮列表，逐字複製原子並呼叫 ``list-of`` ，展開成列表。
@@ -399,12 +400,13 @@ Common Lisp 有幾個內建的給樹使用的函數。舉例來說， ``copy-tre
 沒有內部節點的二元樹沒有太大的用處。 Common Lisp 包含了操作樹的函數，不只是因為我們需要樹這個結構，而是因為我們需要一種方法，來操作列表及所有內部的列表。舉例來說，假設我們有一個這樣的列表：
 
 ::
-
+:linenos:
    (and (integerp x) (zerop (mod x 2)))
 
 而我們想要把各處的 x 都換成 y 。呼叫 ``substitute`` 是不行的，它只能替換序列 (sequence)中的元素：
 
-::
+.. code-block:: cl
+   :linenos:
 
    > (substitute 'x 'y '(and (integerp x) (zerop (mod x 2))))
    (AND (INTEGERP X)(ZEROP (MOD X 2)))

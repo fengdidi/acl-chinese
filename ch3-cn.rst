@@ -1,3 +1,6 @@
+.. highlight:: cl
+   :linenothreshold: 0
+
 Chapter 3 列表 (Lists)
 **********************************
 

@@ -1,3 +1,6 @@
+.. highlight:: cl
+   :linenothreshold: 0
+
 Chapter 2 歡迎來到Lisp (Welcome to Lisp)
 ****************************************************
 

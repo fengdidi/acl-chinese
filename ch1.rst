@@ -1,3 +1,6 @@
+.. highlight:: cl
+   :linenothreshold: 0
+
 Chapter 1 簡介 (Introduction)
 *******************************
 

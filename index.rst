@@ -15,11 +15,12 @@ PDF 製作中...
 .. toctree::
    :maxdepth: 1
 
-   terminology
+   
    ch1
    ch2
    ch3
    ch4
+   terminology
    about
    pdf-zhTW
 
@@ -28,10 +29,11 @@ PDF 製作中...
 .. toctree::
    :maxdepth: 1
 
-   terminology-cn
+   
    ch1-cn
    ch2-cn
    ch3-cn
    ch4-cn
+   terminology-cn
    about-cn
    pdf-zhCN

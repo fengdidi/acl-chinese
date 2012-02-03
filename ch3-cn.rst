@@ -548,11 +548,9 @@ Common Lisp 有几个内建的操作树的函数。举例来说， ``copy-tree``
 ::
 
    > (union '(a b c) '(c b s))
-   (A C B S)
-   
+   (A C B S)   
    > (intersection '(a b c) '(b b c))
    (B C)
-
    > (set-difference '(a b c d e) '(b e))
    (A C D)
 

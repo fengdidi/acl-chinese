@@ -521,13 +521,13 @@ Common Lisp 有幾個內建的給樹使用的函數。舉例來說， ``copy-tre
 
 我們可以想像一個 Limited 版本 ``member-if`` 是這樣寫成的：
 
-:
-
-   defun our-member-if (fn lst)
-     (and (consp lst)
-          (if (funcall fn (car lst))
-              lst
-              (our-member-if fn (cdr lst)))))
+::
+   
+   (defun our-member-if (fn lst)
+    (and (consp lst)
+         (if (funcall fn (car lst))
+             lst
+             (our-member-if fn (cdr lst)))))
 
 函數 ``adjoin`` 像是條件式的 ``cons`` (conditional ``cons`` )。它接受一個物件及一個列表，如果物件還不是列表的成員，就在創建物件至列表上。
 

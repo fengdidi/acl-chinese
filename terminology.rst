@@ -23,6 +23,7 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 ====
 
 * body 主體
+* box notation 箱子表示法
 * break loop 中斷迴圈
 * bug 臭蟲
 
@@ -32,6 +33,7 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 * closure 閉包
 * code 程式碼
 * Common Lisp 一種 Lisp 方言。
+* concatenation 串接
 * conditional 條件式
 * constant 常數
 
@@ -45,7 +47,9 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 ====
 
 * evaluate 求值
+* explicitly pointer 顯式指標
 * expression 表達式
+
 
 @F
 ====
@@ -58,6 +62,7 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 ====
 
 * garbage collection 垃圾回收
+* general-purpose programming language 通用型程式語言
 * global variable 全域變數
 
 @H
@@ -83,6 +88,7 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 * lexical Closure 詞法閉包
 * local variable 區域變數
 * list 列表
+* list-manipulation fuctions 列表操作函數
 
 @M
 ====
@@ -99,10 +105,11 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 @O
 ====
 
-* Object 物件
-* Object-oriented dynamic language 動態的物件導向語言
-* Object-oriented programming 物件導向程式設計
-* Operator 運算元
+* object 物件
+* object-oriented dynamic language 動態的物件導向語言
+* object-oriented programming 物件導向程式設計
+* operator 運算元
+* override 重寫
 
 @P
 ====
@@ -131,6 +138,7 @@ e.g. ctrl+F+ 小老鼠C 切換到 C 開頭的名詞。
 * rapid prototyping 快速建型
 * recursion 遞迴
 * return value 回傳值
+* run-length encoding 遊程編碼
 
 @S
 ====

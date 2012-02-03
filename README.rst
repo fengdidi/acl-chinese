@@ -23,6 +23,8 @@
 
 歡迎大家在 `github項目頁面 <https://github.com/JuanitoFatas/acl-chinese>`_ 開任務給我作改善。
 
+我寫了一個開任務的範例，請查閱本項目的 wiki。
+
 若不知道怎麼開任務的朋友，可至 `這裡 <http://juanitofatas.github.com/blog/2012/01/23/acl-trans-errors/>`_ 留言。
 
 聯繫我
